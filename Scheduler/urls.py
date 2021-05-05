@@ -20,5 +20,7 @@ from accounts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('table/',include('timeTable.urls')),
-    path("",views.index,name="index")
+    path("accounts/", include('accounts.urls')),
+    path("",views.index,name="index"),
+    path("about/",views.about,name="about"),
 ]
