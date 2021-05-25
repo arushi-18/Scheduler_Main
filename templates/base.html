@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/all.min.css' %}"
+          type="text/css">
 	<title>Scheduler</title>
 </head>
 <body>
@@ -39,9 +41,9 @@
 		</nav>
 	</header>
 	<div class="row">
-		<nav class="sidebar bg-dark col-md-2 d-none d-md-block navbar-dark side-nav">
+		<nav class="sidenav navbar-vertical  fixed-left  navbar-expand-xs navbar-dark bg-dark">
 			<div class="sidebar-sticky">
-				<ul class="nav navbar-nav flex-column pl-5">
+				<ul class="nav navbar-nav flex-column p-5">
 					<li class="nav-item">
 						<a class="nav-link" href="#">Latest Posts</a>
 					</li>
@@ -55,11 +57,11 @@
 			{% block content %}{% endblock content %}
 		</div>
 	</div>
-	<footer class="bg-dark row align-items-start">
-		<div class="ml-5">
+	<footer class="footer bg-dark row align-items-start">
+		<div class="ml-5 pt-2">
 			<a class="text-white" href="{% url 'about' %}">About Us</a> 
 		</div>
-		<div class="ml-5">
+		<div class="ml-5 pt-2">
 			<a class="text-white" href="#">Contact Us</a> 
 		</div>
 	</footer>
