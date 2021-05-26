@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'timeTable',
     'accounts',
     'blog',
@@ -122,6 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
