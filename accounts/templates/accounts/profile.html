@@ -1,4 +1,12 @@
 {% extends "Base.html" %}
 {% block content %}
-	<h1>{{ user.username }}</h1>
+	<div class="container">
+		<div class="media mt-5">
+	  		<img id="profile" src="{{ user.profile.image.url }}" class="mr-3 rounded" height="200px" width="200px">
+	  		<div class="media-body">
+	    		<h1 class="mt-0">{{ user.username }}</h1>
+	    		<h2 class="mt-0 text-muted">{{ user.email }}</h2>
+	  		</div>
+		</div>
+	</div>
 {% endblock %}

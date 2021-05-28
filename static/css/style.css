@@ -14,3 +14,7 @@ html,body{
   width: 101%;
   height: 50px;
   }
+#profile{
+  object-fit: contain;
+  border: 1px solid #dee2e6;
+}

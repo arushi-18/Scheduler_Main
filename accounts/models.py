@@ -58,3 +58,13 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username',]
     objects = UserManager()
+
+class Profile(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    image=models.ImageField(default='default.png',upload_to='profile_pictures')
+
+    def __str__(self):
+        return f'{self.user.email} Profile'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
