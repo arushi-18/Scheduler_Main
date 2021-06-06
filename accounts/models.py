@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager ## A new class is imported. ##
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from PIL import Image
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
@@ -68,3 +69,8 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        img=Image.open(self.image.path)
+        if img.height>500 or img.width>500:
+            output_size=(300,300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
