@@ -25,6 +25,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">To-Do List</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'post-create' %}">Create a Post</a>
+					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto mr-3">
 					{% if user.is_authenticated %}
@@ -52,7 +55,7 @@
 							<a class="nav-link" href="{% url 'profile' %}">My Profile</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">My Posts</a>
+							<a class="nav-link" href="{% url 'my-posts' %}">My Posts</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Calender</a>

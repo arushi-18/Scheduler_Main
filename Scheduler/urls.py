@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from accounts import views as account_views
 from django.contrib.auth import views as auth_views
+from blog import views as blog_views
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,7 +27,7 @@ urlpatterns = [
     path('table/',include('timeTable.urls')),
     path('blog/',include('blog.urls')),
     path("accounts/", include('accounts.urls')),
-    path("",account_views.index,name='index'),
+    path("",blog_views.PostListView.as_view(),name='index'),
     path("about/",account_views.about,name='about'),
     path("register/",account_views.register,name='register'),
     path("login/",auth_views.LoginView.as_view(template_name='accounts/login.html'),name='login'),

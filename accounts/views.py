@@ -36,8 +36,8 @@ def profile(request):
 		}
 	return render(request,'accounts/profile.html',context)
 
-def index(request):
-	return render(request,'index.html')
+#def index(request):
+#	return render(request,'index.html')
 
 def about(request):
 	return render(request,'about.html')

@@ -5,16 +5,18 @@
 		{% for p in posts %}
 		<div class="card mb-5">
 			<div class="card-body">
-				<h5 class="card-title">{{p.title}}</h5>
+				<h5 class="card-title"><a href="{% url 'post-detail' p.id %}" class="card-link">{{p.title}}</a></h5>
 				<h6 class="card-subtitle mb-2 text-muted">{{p.subtitle}}</h6>
 				<div class="row justify-content-start ml-1">
 					<img id="profile" class="rounded rounded-circle" height="70px" width="70px" src="{{ p.author.profile.image.url }}">
-					<h6 class="col-8 card-subtitle mb-2 text-muted align-self-end">Author: {{ p.author.username }}</h6>
+					<div class="col-8 ml-1">
+						<h6 class="row card-subtitle m-2 text-muted align-self-start">Author: {{ p.author.username }}</h6>
+						<h6 class="row card-subtitle m-2 text-muted align-self-end">{{p.date_posted | date:"d F, Y"}}</h6>
+					</div>
 				</div>
 				<p class="card-text">{{p.content}}</p>
-				<h6 class="card-subtitle mb-2 text-muted">{{p.date_posted | date:"d F, Y"}}</h6>
-				<a href="#" class="card-link">Card link</a>
-				<a href="#" class="card-link">Another link</a>
+				<a href="{% url 'post-update' pk=p.id %}" class="card-link">Update</a>
+				<a href="{% url 'post-delete' pk=p.id %}" class="card-link">Delete</a>
 			</div>
 		</div>
 		{% endfor %}

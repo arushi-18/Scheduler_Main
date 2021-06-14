@@ -1,0 +1,15 @@
+{% extends "Base.html" %}
+{% block content %}
+	<h1 class="mb-5">{{object.title}}</h1>
+	<div class="container">
+		<h3 class="card-subtitle mb-2 text-muted">{{object.subtitle}}</h6>
+		<div class="row justify-content-start ml-1">
+			<img id="profile" class="rounded rounded-circle" height="70px" width="70px" src="{{ object.author.profile.image.url }}">
+			<div class="col-8 ml-1">
+				<h6 class="row card-subtitle m-2 text-muted align-self-start">Author: {{ object.author.username }}</h6>
+				<h6 class="row card-subtitle m-2 text-muted align-self-end">{{object.date_posted | date:"d F, Y"}}</h6>
+			</div>
+		</div>
+		<p class="m-2">{{object.content}}</p>
+	</div>
+{% endblock %}

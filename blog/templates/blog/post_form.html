@@ -1,0 +1,33 @@
+{% extends "Base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<div class="container">
+       		<div class="row justify-content-center">
+            	<div class="col-md-6">
+            		<h1>Create a new Post</h1>
+					<div class="form-group">
+						{{ form|crispy }}
+					</div>
+					<div class="form-actions">
+	            		<button type="submit" class="btn btn-outline-success">Post</button>
+						<!--<a href="{% url 'register' %}" class="btn btn-info">Need an account?</a>-->
+					</div>
+            	</div>
+            </div>
+        </div>
+	</form>
+
+<!--<script type="text/javascript">
+     let field_values=["{{ form.username.value }}", "{{ form.password.value }}"];
+     let field_names=[ "id_{{ form.username.name }}", "id_{{ form.password.name }}"]
+     for(let i=0;i<field_names.length;i++)
+     {    if(field_values[i]!=="" && field_values[i]!==null && field_names[i]!=="id_" && field_names[i]!==null && field_values[i]!="None")
+               document.getElementById(field_names[i]).value=field_values[i];
+     }
+     let tag1=document.getElementsByTagName('ul')[3];
+     tag1.style.listStyle='none';
+     tag1.classList.add("pl-0");
+</script>-->
+{% endblock %}
