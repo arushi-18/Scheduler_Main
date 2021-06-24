@@ -28,8 +28,8 @@
      let tag=document.getElementsByTagName('small');
      for(let i=0;i<tag.length;i++)
      {   tag[i].classList.add("d-none");
- 		 let text="hint_"+field_names[i+1];
- 		 let list=document.getElementById(field_names[i+1]);
+ 		 let text="hint_"+field_names[i+2];
+ 		 let list=document.getElementById(field_names[i+2]);
  		 let stripedHtml = tag[i].innerHTML.replace(/<[^>]+>/g, '\n');//$("<ul>").html(tag[i].innerHTML).text();
  		 list.title=stripedHtml;
  	}
