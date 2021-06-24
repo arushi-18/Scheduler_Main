@@ -10,7 +10,7 @@
 				<div class="row justify-content-start ml-1">
 					<img id="profile" class="rounded rounded-circle" height="70px" width="70px" src="{{ p.author.profile.image.url }}">
 					<div class="col-8 ml-1">
-						<h6 class="row card-subtitle m-2 text-muted align-self-start">Author: {{ p.author.username }}</h6>
+						<h6 class="row card-subtitle m-2 text-muted align-self-start"><a href="{% url 'all-posts' p.author.username %}" class="card-link">Author: {{ p.author.username }}</a></h6>
 						<h6 class="row card-subtitle m-2 text-muted align-self-end">{{p.date_posted | date:"d F, Y"}}</h6>
 					</div>
 				</div>
@@ -18,14 +18,24 @@
 			</div>
 		</div>
 		{% endfor %}
-		<div class="card mb-5">
-			<div class="card-body">
-				<h5 class="card-title">Card title</h5>
-				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				<a href="#" class="card-link">Card link</a>
-				<a href="#" class="card-link">Another link</a>
-			</div>
+		<div class="row justify-content-center mb-5">
+			{% if is_paginated %}
+				{% if page_obj.has_previous %}
+					<a href="/?page=1" class="btn btn-outline-info m-2">First</a>
+					<a href="/?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info m-2">Previous</a>
+				{% endif %}
+				{% for num in page_obj.paginator.page_range %}
+					{% if page_obj.number == num %}
+						<a href="/?page={{ num }}" class="btn btn-info m-2">{{num}}</a>
+					{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+						<a href="/?page={{ num }}" class="btn btn-outline-info m-2">{{num}}</a>
+					{% endif %}
+				{% endfor %}
+				{% if page_obj.has_next %}
+					<a href="/?page={{ page_obj.next_page_number }}" class="btn btn-outline-info m-2">Next</a>
+					<a href="/?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-info m-2">Last</a>
+				{% endif %}
+			{% endif %}	
 		</div>
 	</div>
 {% endblock %}

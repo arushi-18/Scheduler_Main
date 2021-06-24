@@ -1,11 +1,8 @@
-html,body{
-  overflow-x: hidden;
+.row{
+  width: 99%;
 }
 .container h1{
   margin-top: 5px;
-}
-.navbar-dark .navbar-toggler {
-  float:right;/*doesn't work*/
 }
 .footer {
   position: fixed;
@@ -17,4 +14,10 @@ html,body{
 #profile{
   object-fit: contain;
   border: 1px solid #dee2e6;
+}
+/*Fix it!!!!*/
+#sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }

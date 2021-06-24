@@ -6,7 +6,7 @@
 		<div class="row justify-content-start ml-1">
 			<img id="profile" class="rounded rounded-circle" height="70px" width="70px" src="{{ object.author.profile.image.url }}">
 			<div class="col-8 ml-1">
-				<h6 class="row card-subtitle m-2 text-muted align-self-start">Author: {{ object.author.username }}</h6>
+				<h6 class="row card-subtitle m-2 text-muted align-self-start"><a href="{% url 'all-posts' object.author.username %}" class="card-link">Author: {{ object.author.username }}</a></h6>
 				<h6 class="row card-subtitle m-2 text-muted align-self-end">{{object.date_posted | date:"d F, Y"}}</h6>
 			</div>
 		</div>
