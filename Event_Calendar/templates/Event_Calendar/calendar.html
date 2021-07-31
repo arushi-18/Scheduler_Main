@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="clearfix row justify-content-between mb-5 ml-2" id="month-button">
+	<a class="btn btn-info" href="{% url 'event' user.username %}?{{ prev_month }}"> Previous Month </a>
+	<a class="btn btn-info float-right" href="{% url 'event' user.username %}?{{ next_month }}"> Next Month </a>
+</div>
+{{calendar}}
+{% endblock %}

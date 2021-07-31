@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('table/',include('timeTable.urls')),
+    path('calendar/',include('Event_Calendar.urls')),
     path('blog/',include('blog.urls')),
     path("accounts/", include('accounts.urls')),
     path("",blog_views.PostListView.as_view(),name='index'),

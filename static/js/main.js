@@ -1,36 +1,21 @@
-$(function() {
-
-  'use strict';
-
-  $('.js-menu-toggle').click(function(e) {
-
-  	var $this = $(this);
-
-  	
-
-  	if ( $('body').hasClass('show-sidebar') ) {
-  		$('body').removeClass('show-sidebar');
-  		$this.removeClass('active');
-  	} else {
-  		$('body').addClass('show-sidebar');	
-  		$this.addClass('active');
-  	}
-
-  	e.preventDefault();
-
-  });
-
-  /*// click outisde offcanvas
-	$(document).mouseup(function(e) {
-    var container = $(".sidebar");
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      if ( $('body').hasClass('show-sidebar') ) {
-				$('body').removeClass('show-sidebar');
-				$('body').find('.js-menu-toggle').removeClass('active');
-			}
-    }
-	}); */
-
-    
-
-});
+function navClick(){
+  //getting button to control
+  let openbtn=document.getElementsByClassName("openbtn")[0];
+  //toggling button icons 
+  openbtn.classList.toggle("fa-bars");
+  openbtn.classList.toggle("fa-times");
+  //toggling width of sidenav
+  let sidebar=document.getElementById("mySidebar");
+  let cStyle = getComputedStyle(sidebar);
+  let navWidth = cStyle.getPropertyValue("width"); 
+  if(navWidth=="65px")
+    sidebar.style.width="250px";
+  else if(navWidth=="250px")
+    sidebar.style.width="65px"
+  //toggling span elements visiblility
+  let tag=document.getElementsByTagName("span");
+  for(let i=1;i<6;i++)
+  {
+    tag[i].classList.toggle("d-none");
+  }
+}

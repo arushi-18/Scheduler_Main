@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row justify-content-center">
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="m-1"></div>
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                        <div class="m-1"></div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger p-3">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="col-md-6">
+                <h1>Event Form</h1>
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-outline-info">Submit</button>
+                  <!--<a href="{% url 'register' %}" class="btn btn-info">Need an account?</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
